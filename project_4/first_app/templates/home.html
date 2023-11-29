@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This IS HOMEEE</h1>
+    <h1>Age : {{age}}</h1>
+
+    {% if age >= 18 %}
+        <h3>You will get NID</h3>
+    {% elif age < 18 %}
+        <h3>No NiD</h3>
+    {% else %}
+        <h4>KIDDo</h4>
+        
+    {% endif %}
+
+    {% for f in fav_food %}
+
+        <h3>{{f}}</h3>
+    {% endfor %}
+
+    <h1>{{b_day | date:"D d M Y"}}</h1>
+    
+</body>
+</html>

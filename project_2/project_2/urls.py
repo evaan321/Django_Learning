@@ -1,5 +1,5 @@
 """
-URL configuration for simple_page_navigation_project3 project.
+URL configuration for project_2 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import home
+from .views import index
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home),
-    path('navigation/',include('navigation.urls')),
+    path('first_app/' ,include("first_app.urls")),
+    path('',index)
 ]
