@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block stat %}
+{% load static %}
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    {% endblock %}
+</head>
+
+
+<body>
+    
+    {% block content %}
+
+    <div class="d-flex">
+
+        <h1>
+            Welcome To Our Fastfood Resturant.
+        </h1>
+
+        <img src="{% static 'home.jpeg' %}" alt="">
+
+
+    </div>
+
+
+    {% endblock %}
+</body>
+</html>

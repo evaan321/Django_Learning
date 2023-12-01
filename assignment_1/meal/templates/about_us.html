@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block stat %}
+{% load static %}
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+
+    <div class="container">
+
+    <h1 class="text-center h1">My Resturant</h1>
+
+    <div class="d-flex justify-content-between">
+        <img src="{% static 'res.jpeg' %}">
+         <div >
+<h1>Resturant Owner : Evaan</h1>
+<h2>Resturant Type : Fastfood</h2>
+<h3>Resturant Location : Dhaka</h3>
+         </div>
+    </div>
+    
+
+    </div>
+
+
+    {% endblock %}
+</body>
+</html>
