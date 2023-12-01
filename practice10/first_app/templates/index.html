@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<h1>{{ arr | join:" // " }}</h1>
+
+<h1>adding using filter : {{ idCategory | add:"5" }}</h1>
+
+
+<h1>Used CapFirst --- {{ st2 | capfirst  }} </h1>
+
+<h1>USed Cut Filter {{ st3 | cut:" " }}</h1>
+
+<h1>before sorting
+    {% for i in names %}
+
+    <h2>{{i.name}}</h2>
+
+
+{% endfor %}
+
+</h1>
+<h1>after sorting using dict sort
+
+    {{names | dictsort:"name"}}
+
+
+</h1>
+
+<h1>length filter for Welcome word {{ "Welcome" | length}}</h1>
+
+<h1>truncate filter : {{ st4|truncatewords:15 }}</h1>
+</body>
+</html>
