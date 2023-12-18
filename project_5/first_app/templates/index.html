@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static  'style/index.css'  %}">
+</head>
+<body>
+    <h1>index page</h1>
+    <img src="{% static 'images/bird2.jpeg' %}" alt="">
+
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'about' id=1 %}">About</a>
+    <h1>{{id}}</h1>
+</body>
+</html>

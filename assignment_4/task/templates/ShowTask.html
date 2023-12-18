@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row container" style="width: 50%; margin: auto;">
+
+{% for post in data %}
+
+
+    <div class="col-4 card text-bg-warning mb-3 ms-3 m-5" style="max-width: 18rem;">
+        
+        <div class="card-body">
+          <h5 class="card-header">Task No:{{post.id}}</h5>
+          <h5> <i>Assigned Date: {{post.assign}}</i> </h5>
+          <h5 class="card-title">{{post.taskTitle}}</h5>
+          <p class="card-text">{{post.taskDetail}}</p>
+          
+          
+          <h1>
+            {% for category in post.category.all %}
+                <button class="btn btn-light">{{ category.categoryName }}</button>
+            {% endfor %}
+        </h1>
+
+            
+     
+
+          {% if post.is_completed  %}
+            <h4> Task Completed</h4>  
+
+         {% else  %}
+            <a href="{% url 'edit' post.id %}"><button  class="btn btn-primary">Edit</button></a>    
+            <a href="{% url 'delete' post.id %}"> <button class="btn btn-danger">Delete</button></a>  
+            
+            {% endif %}
+
+        </div>
+      </div>
+  
+
+{% endfor %}
+</div>
+
+{% endblock %}
