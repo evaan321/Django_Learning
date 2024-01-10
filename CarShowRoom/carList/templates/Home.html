@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+
+{%load static%}
+{% block content %}
+{%load static%}
+
+
+<div class="d-flex">
+
+    <div>
+        <h1> Welcome to Our Showroom  </h1>
+
+        <p class="h3 text-primary">Get All your Luxury Dream cars here. <br> Have a test drive and judge yourself.</p>
+    </div>
+   
+    <img src="{% static 'bmw.jpg' %}">
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+
+    
+        {% for d in brand %}
+        <div class="col">
+       <a href="{% url 'filter' d.BrandName %}"><button class="btn btn-info">{{d.BrandName}}</button></a> 
+        </div>
+        {% endfor %}
+    
+  
+</div>
+<h1>Total Cars Found : {{count}}</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for d in data %}
+  
+        <div class="col">
+          <div class="card">
+            <img src="{{ d.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{d.title}}</h5>
+              <p class="card-text">{{d.desc  }}</p>
+
+              <h3> Price : {{d.price}} Taka</h3>
+              <h1><button class="btn btn-primary"> Brand : {{d.brand.BrandName}}</button></h1>
+              
+         <a href="{% url 'detail' d.id %}"><button class="btn btn-warning">Details</button></a>     
+            </div>
+          </div>
+        </div>
+
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+
+
+
+
+

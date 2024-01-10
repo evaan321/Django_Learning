@@ -1,0 +1,49 @@
+{%  extends "base.html" %}
+{% load crispy_forms_tags %}
+ {% block content %}
+
+ <div class="row">
+
+
+    <div class="col-6">
+        <img class="card-img-top" src="{{data.image.url}}" alt="">
+    </div>
+
+    <div class="col-6">
+
+        <h5 class="card-title">{{data.title}}</h5>
+        <p class="card-text">{{data.desc  }}</p>
+
+        <h3> Price : {{data.price}} Taka</h3>
+        <h3> Available : {{data.quantity}} </h3>
+        <h1><button class="btn btn-primary"> Brand : {{data.brand.BrandName}}</button></h1>
+        
+    {% if request.user.is_authenticated %}
+   <a href="{% url 'buy' data.id  %}" class="btn btn-warning">Buy Now</a>  
+    {% endif %}
+    </div>
+
+
+
+
+ </div>
+
+
+<div>
+    <form method="post">
+        <h1>Type Your comments here</h1>
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </div>
+    </form>
+
+
+
+{% endblock content %}
+
+
+
+
+
