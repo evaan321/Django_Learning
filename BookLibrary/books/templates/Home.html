@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex">
+    <div>
+        <h1 class="text-secondary">Current Balance :  {{myUser.balance}}</h1>
+        <h1>Welcome to Our Bookstore</h1>
+      
+    </div>
+   
+
+</div>
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for category in categories %}
+    <div class="col">
+        <a href="{% url 'category-list' category=category.0 %}">
+            <button class="btn btn-info">{{ category.1 }}</button>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+
+<h1>Total Books Found: {{ count }}</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for book in data %}
+    <div class="col">
+        <div class="card">
+            <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text">{{ book.desc }}</p>
+                <h3>Price: ${{ book.bPrice }}</h3>
+                <h1><button class="btn btn-primary">Category: {{ book.category }}</button></h1>
+                <a href="{% url 'book-detail' pk=book.pk %}" class="btn btn-warning">Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

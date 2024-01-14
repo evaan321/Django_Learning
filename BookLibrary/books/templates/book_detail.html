@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ book.image.url }}" alt="{{ book.title }}" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <h2 class="mb-3">{{ book.title }}</h2>
+        <p class="lead">{{ book.desc }}</p>
+        <p><strong>Price:</strong> {{ book.bPrice }} Taka</p>
+        <p><strong>Category:</strong> {{ book.category }}</p>
+
+       
+        <div class="mt-4">
+          <h3>User Reviews:</h3>
+          {% if reviews %}
+            <div class="list-group">
+              {% for review in reviews%}
+                <div class="list-group-item">
+                  <h5 class="mb-1">{{ review.user.username }}</h5>
+                  <p class="mb-1">{{ review.review_text }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No reviews available for this book.</p>
+          {% endif %}
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

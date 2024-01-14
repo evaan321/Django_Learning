@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="mb-4">{{ user_model.user.username }}'s Profile</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Account Balance:</h2>
+        <p class="lead">{{ user_model.balance }} taka</p>
+      </div>
+      <div class="col-md-6">
+        <h2>Borrowing History:</h2>
+        <ul class="list-group">
+          {% for borrowed_book in borrowed_books %}
+            <li class="list-group-item">
+              <strong>{{ borrowed_book.book.title }}</strong>
+              <br>
+              Borrowed on {{ borrowed_book.borrowed_date }}
+              {% if borrowed_book.returned_date %}, Returned on {{ borrowed_book.returned_date }}{% endif %}
+              <br>
+              <div class="mb-2">
+                {% if not borrowed_book.returned %}
+                  <a href="{% url 'return-book' borrowed_book.id %}" class="btn btn-danger btn-sm">Return Book</a>
+                {% endif %}
+              </div>
+              <a href="{% url 'review-book' book_id=borrowed_book.book.id %}" class="btn btn-primary btn-sm">Review</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

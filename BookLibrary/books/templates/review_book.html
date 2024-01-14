@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="mb-4">Review Book - {{ book.title }}</h1>
+
+    <form method="post" class="mb-4">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Your Review</label>
+        {{ form.review_text }}
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+  </div>
+{% endblock %}
