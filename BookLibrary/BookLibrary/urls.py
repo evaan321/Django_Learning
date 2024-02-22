@@ -21,6 +21,7 @@ from books.views import *
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     
